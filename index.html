@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AGTC-JS_V01-04</title>
+<title>AGTC-JS_V01-05</title>
 
 <style>
 body {
@@ -26,8 +26,9 @@ th {
 }
 
 .alpha30 {
-  color: red;
+  color: black;
   font-weight: bold;
+  background-color: #80ffaa;
 }
 
 .fatal, .warning {
@@ -91,7 +92,7 @@ th {
 
 <body>
 
-<h2>AGTC-JS_V01-04 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
+<h2>AGTC-JS_V01-05 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
 
 <div class="temp-block">
   <label for="Tsky">Sky temperature (K):</label>
@@ -133,8 +134,12 @@ th {
 	 
    HTML / JavaScript port
 
-   Version : V01-04
+   Version : V01-05
 
+Version V01-05
+March 2026
+- Line "alpha = 30 deg": color no longer red but black on a light green background.
+- Reset file selector after reload (for instance F5).
 
 Version V01-04
 February 2026
@@ -475,6 +480,9 @@ function display_results() {
 window.addEventListener("DOMContentLoaded", () => {
   validateTemperature(document.getElementById("Tsky"));
   validateTemperature(document.getElementById("Tearth"));
+  
+  // Reset file selector after reload
+  document.getElementById("fileInput").value = "";
 
   // Clear output when a new FFTab file is selected
   document.getElementById("fileInput").addEventListener("change", () => {
