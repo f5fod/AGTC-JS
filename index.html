@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AGTC-JS_V01-05</title>
+<title>AGTC-JS_V01-06</title>
 
 <style>
 body {
@@ -29,6 +29,14 @@ th {
   color: black;
   font-weight: bold;
   background-color: #80ffaa;
+}
+
+.eme-note {
+  border: none;
+  padding-left: 12px;
+  text-align: left;
+  font-weight: bold;
+  color: black;
 }
 
 .fatal, .warning {
@@ -92,7 +100,7 @@ th {
 
 <body>
 
-<h2>AGTC-JS_V01-05 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
+<h2>AGTC-JS_V01-06 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
 
 <div class="temp-block">
   <label for="Tsky">Sky temperature (K):</label>
@@ -134,7 +142,13 @@ th {
 	 
    HTML / JavaScript port
 
-   Version : V01-05
+   Version : V01-06
+   
+   
+Version V01-06
+March 2026 
+- The columm T<sub>a,loss</sub> is suppressed as T<sub>a,loss</sub> is a constant. Its value is now displayed after the AVG value.
+- "EME note" added on the "alpha = 30 deg." line.
 
 Version V01-05
 March 2026
@@ -222,7 +236,7 @@ const sum_Sky = new Float64Array(N_ALPHA);
 const sum_Earth = new Float64Array(N_ALPHA);
 
 const pattern_temperature = new Float64Array(N_ALPHA);
-const loss_temperature = new Float64Array(N_ALPHA);                         // For the new column T_loss
+const loss_temperature = new Float64Array(N_ALPHA);                         // For the column T<sub>a,loss</sub>, if any.
 const total_temperature = new Float64Array(N_ALPHA);
 const G_on_T_dB = new Float64Array(N_ALPHA);
 
@@ -414,12 +428,12 @@ function main_calculations(Tsky, Tearth) {
       (Tsky * sum_Sky[k] + Tearth * sum_Earth[k]) /
       (sum_Sky[k] + sum_Earth[k]);
 	  
-	const Tl = 290 * (1 - avg_gain_num);                               // For the new column T_loss
+	const Tl = 290 * (1 - avg_gain_num);                               // For the column T<sub>a,loss</sub>, if any.
 
     const Tt = (Tp - 290) * avg_gain_num + 290;
 
     pattern_temperature[k] = Tp;
-	loss_temperature[k] = Tl;                                          // For the new column T_loss
+	loss_temperature[k] = Tl;                                          // For the column T<sub>a,loss</sub>, if any.
     total_temperature[k] = Tt;
 
     if (Tt > 0) {                                                      // For the case Tt <= 0
@@ -449,14 +463,14 @@ function display_results() {
   }
 
   html += `<p>
-    Loss Factor (L<sub>a</sub>) = ${(1 / avg_gain_num).toFixed(6)} (/), Average Gain = ${(avg_gain_num).toFixed(6)} (/)
+    Loss Factor (L<sub>a</sub>) = ${(1 / avg_gain_num).toFixed(6)} (/), Average Gain = ${(avg_gain_num).toFixed(6)} (/), T<sub>a,loss</sub> = ${(290 * (1 - avg_gain_num)).toFixed(3)} K
   </p>`;
 
   html += `<table>
     <tr>
       <th>α (deg)</th>
       <th>T<sub>a</sub> (K)</th>                               <!-- Instead of T_pattern -->
-	  <th>T<sub>a,loss</sub> (K)</th>                          <!-- New column T_a,loss -->
+	  <!-- <th>T<sub>a,loss</sub> (K)</th>                          column T<sub>a,loss</sub>, if any -->
       <th>T<sub>A</sub> (K)</th>                               <!-- Instead of T_total -->
       <th>G/T<sub>A</sub> (dB)</th>                            <!-- Instead of G/Ta -->
     </tr>`;
@@ -467,9 +481,10 @@ function display_results() {
     html += `<tr class="${cls}">
       <td>${alpha}</td>
       <td>${pattern_temperature[k].toFixed(3)}</td>
-	  <td>${loss_temperature[k].toFixed(3)}</td>                              <!-- New column T_loss -->
+	  <!-- <td>${loss_temperature[k].toFixed(3)}</td>                              column T<sub>a,loss</sub>, if any -->
       <td>${total_temperature[k].toFixed(3)}</td>
 	  <td>${Number.isNaN(G_on_T_dB[k]) ? "" : G_on_T_dB[k].toFixed(3)}</td>   <!-- For the case Tt <= 0 -->
+	  <td class="eme-note">${alpha === 30 ? "<= in EME applications acc. DJ9BV: Use &alpha; = 30 deg." : ""}</td>
     </tr>`;
   }
 
