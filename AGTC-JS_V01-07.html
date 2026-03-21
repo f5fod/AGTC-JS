@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AGTC-JS_V01-06</title>
+<title>AGTC-JS_V01-07</title>
 
 <style>
 body {
@@ -100,7 +100,7 @@ th {
 
 <body>
 
-<h2>AGTC-JS_V01-06 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
+<h2>AGTC-JS_V01-07 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
 
 <div class="temp-block">
   <label for="Tsky">Sky temperature (K):</label>
@@ -131,15 +131,6 @@ th {
 <div id="output"></div>
 
 <script>
-if (!sessionStorage.getItem("acceptedDisclaimer")) {
-  window.location.href = "index.html";
-}
-
-
-
-
-
-
 /* =========================================================
    AGTC – Antenna G/Ta Calculator
 
@@ -151,8 +142,13 @@ if (!sessionStorage.getItem("acceptedDisclaimer")) {
 	 
    HTML / JavaScript port
 
-   Version : V01-06
+   Version : V01-07
    
+   
+Version V01-07
+March 2026   
+- Disclaimer added; named index.html
+- You cannot launch AGTC-JS without having accepted the Disclaimer text.
    
 Version V01-06
 March 2026 
@@ -196,6 +192,10 @@ February 2026
       - G/T(subscript)a.
    - Average Gain is replaced by Loss Factor L(subscript)a, with Loss Factor = 1 / (Average Gain). 
  ========================================================= */
+
+if (!sessionStorage.getItem("acceptedDisclaimer")) {                // Disclaimer control.
+  window.location.href = "index.html";                              // index.html contains the disclaimer text.
+}
 
 document.getElementById("fileInput").addEventListener("change", function () {
   document.getElementById("fileName").textContent =
