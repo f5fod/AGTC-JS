@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AGTC-JS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #ddd;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: #ffcc00;
+    }
+
+    h3 {
+      color: #ffcc00;
+    }
+
+    .box {
+      border: 1px solid #555;
+      padding: 20px;
+      background-color: #1a1a1a;
+    }
+
+    .accept {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0080ff;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    a.button:hover {
+      background-color: #3399ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>AGTC-JS – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
+
+<div class="box">
+
+<h2>Introduction</h2>
+
+<p>
+AGTC (Antenna Gain / Temperature Calculator) is a numerical tool
+developed for the evaluation of antenna G/T<sub>A</sub> based on far-field
+radiation pattern data (FFTab).
+</p>
+
+<p>
+It follows the general principles described in the literature
+(notably DJ9BV, DUBUS 4/1987), using a full spherical integration of the
+antenna pattern combined with simplified sky and earth temperature models.
+</p>
+
+<p>
+This program is intended for amateur radio operators and experimenters.
+It remains subject to the usual limitations of numerical methods and input data quality.
+</p>
+
+<p>
+No interpolation, no symmetry assumptions, no hidden processing:
+what you get is exactly what is contained in the pattern file —
+nothing more, nothing less.
+</p>
+
+<p>
+Results should be regarded as indicative. They are useful for
+comparisons, trends, and understanding, but not as absolute
+performance figures.
+</p>
+
+<p>
+As always in radio work: <em>the result is only as good as the data you put in</em>.
+</p>
+
+<p>
+Use it, question it, and verify it on the air whenever possible.
+</p>
+
+<p style="text-align:right;">
+— AGTC-JS<br>
+Experimental tool for amateur radio<br>
+2026
+</p>
+
+<h2>Disclaimer of Warranties</h2>
+
+<p>
+This software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties
+of merchantability, fitness for a particular purpose and
+noninfringement.
+</p>
+
+<h2>Limitation of Liability</h2>
+
+<p>
+In no event shall the author be liable for any claim, damages or
+other liability, whether in an action of contract, tort or otherwise,
+arising from, out of or in connection with the software or the use
+or other dealings in the software.
+</p>
+
+<p>
+The user assumes full responsibility for the use of this software
+and for any results obtained.
+</p>
+
+</div>
+
+<div class="accept">
+<p><strong>By proceeding, you acknowledge that you have read and accepted this disclaimer.</strong></p>
+
+<a href="AGTC-JS_V01-06.html" class="button" onclick="sessionStorage.setItem('acceptedDisclaimer', 'yes')">
+
+  I Accept - Continue to AGTC-JS
+</a>
+
+</div>
+
+</body>
+</html>
