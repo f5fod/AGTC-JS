@@ -48,13 +48,12 @@
   </style>
 </head>
 
-<!-- =========================================================
+<!-- ================================================================
 Disclaimer for AGTC-JS
-File name: index.html
-in order to be OK with the GitHub repository
-March 2026
-by F5FOD
- ========================================================= -->
+File name: index.html, in order to be OK with the GitHub repository
+March/April 2026
+by F5FOD with DG7YBN
+ ==================================================================== -->
 
 <body>
 
@@ -62,23 +61,19 @@ by F5FOD
 
 <div class="box">
 
-<h2>Introduction</h2>
+<h2>Purpose</h2>
 
 <p>
 AGTC (Antenna Gain / Temperature Calculator) is a numerical tool
-developed for the evaluation of antenna G/T<sub>A</sub> based on far-field
-radiation pattern data (FFTab).
+developed for the evaluation of antenna<br>
+G/T<sub>A</sub> based on far-field radiation pattern data (FFTab).
 </p>
 
 <p>
-It follows the general principles described in the literature
-(notably DJ9BV, DUBUS 4/1987), using a full spherical integration of the
-antenna pattern combined with simplified sky and earth temperature models.
-</p>
-
-<p>
-This program is intended for amateur radio operators and experimenters.
-It remains subject to the usual limitations of numerical methods and input data quality.
+First of all, create this FFTab file with EZNEC or 4nec2.
+Next use <em>AGTC-JS</em> file which will calculate the<br>
+G/T<sub>A</sub> ratio of your antenna.<br>
+As always in radio work: <em>the result is only as good as the data you put in</em>.
 </p>
 
 <p>
@@ -88,7 +83,8 @@ nothing more, nothing less.
 </p>
 
 <p>
-As always in radio work: <em>the result is only as good as the data you put in</em>.
+This program is intended for amateur radio operators and experimenters.
+It remains subject to the usual limitations of numerical methods and input data quality.
 </p>
 
 <p>
@@ -99,6 +95,30 @@ Use it, question it, and verify it on the air whenever possible.
 — AGTC-JS<br>
 Experimental tool for amateur radio<br>
 2026
+</p>
+
+<h2>History</h2>
+
+<p>
+See the <em>References articles</em> section below.<br>
+In 2016, we wrote the original <em>AGTC_lite.bas</em> program in QB64 Basic and published it in early 2017. 
+Its latest version, still in QB64, is named <em>AGTC_anyGTa_2lite_V2-00.bas</em>.
+In January 2026, BG5TOX & BG5ATV ported this program to HTML/JavaScript.<br>
+This gave us the idea to also create this port, incorporating all the preliminary tests performed on the FFTab file, 
+tests which were present in our original program.
+</p>
+
+
+<p>
+<h2>How to distribute, modify, etc. this program?</h2>
+You may distribute, remix, adapt, and build upon the material in any medium or format 
+for noncommercial purposes only, and only so long as attribution is given to the creators.
+</p>
+
+ <p>
+These articles follow the principles described in the literature
+(notably <b>DJ9BV, DUBUS 4/1987</b>), using a full spherical integration of the
+antenna pattern combined with simplified sky and earth temperature models.
 </p>
 
 <h2>Disclaimer of Warranties</h2>
@@ -124,13 +144,22 @@ The user assumes full responsibility for the use of this software
 and for any results obtained.
 </p>
 
+<p>
+<h2>Reference articles, written by F5FOD with DG7YBN</h2>
+<b>Part 1</b>: An Antenna G/T calculator (<em>AGTC_lite</em>) without mathematical rotation calculations, <b>DUBUS 1/2017</b><br>
+<b>Part 2</b>: An Antenna G/T calculator (<em>AGTC</em> and <em>AGTC_fast</em>) with mathematical rotation calculation, <b>DUBUS 2/2017</b><br>
+<b>Part 3</b>: A brief history of the <em>AGTC_lite/AGTC</em> project and some additional references, <b>DUBUS 3/2017</b><br>
+<b>Part 4</b>: Thirty years ago, <b>DJ9BV</b> was 100% correct in his antenna <em>Effective Noise Temperatures</em> (…) 
+calculation article; an important consequence for <em>AGTC_lite</em>, <b>DUBUS 4/2017</b><br>
+</p>
+
 </div>
 
 <div class="accept">
 <p><strong>By proceeding, you acknowledge that you have read and accepted this disclaimer.</strong></p>
 
 <!-- <a href="AGTC-JS_V01-06.html" class="button">    You can launch AGTC-JS without having accepted the Disclaimer -->
-<a href="AGTC-JS_V01-07.html" class="button" onclick="sessionStorage.setItem('acceptedDisclaimer', 'yes')">
+<a href="AGTC-JS_V01-08.html" class="button" onclick="sessionStorage.setItem('acceptedDisclaimer', 'yes')">
 
   I Accept - Continue to AGTC-JS
 </a>
