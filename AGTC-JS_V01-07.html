@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AGTC-JS_V01-07</title>
+<title>AGTC-JS_V01-08</title>
 
 <style>
 body {
@@ -100,7 +100,7 @@ th {
 
 <body>
 
-<h2>AGTC-JS_V01-07 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
+<h2>AGTC-JS_V01-08 – Antenna G/T<sub>A</sub> Calculator, by F5FOD with DG7YBN</h2>
 
 <div class="temp-block">
   <label for="Tsky">Sky temperature (K):</label>
@@ -142,9 +142,12 @@ th {
 	 
    HTML / JavaScript port
 
-   Version : V01-07
+   Version : V01-08
    
-   
+Version V01-08
+March/April 2026    
+- Unit for G/T<sub>A</sub>: dB/K, instead of dB.
+  
 Version V01-07
 March 2026   
 - Disclaimer added; named index.html
@@ -481,7 +484,7 @@ function display_results() {
       <th>T<sub>a</sub> (K)</th>                               <!-- Instead of T_pattern -->
 	  <!-- <th>T<sub>a,loss</sub> (K)</th>                          column T<sub>a,loss</sub>, if any -->
       <th>T<sub>A</sub> (K)</th>                               <!-- Instead of T_total -->
-      <th>G/T<sub>A</sub> (dB)</th>                            <!-- Instead of G/Ta -->
+      <th>G/T<sub>A</sub> (dB/K)</th>                            <!-- Instead of G/Ta; dB/K instead of dB -->
     </tr>`;
 
   for (let k = 0; k < N_ALPHA; k++) {
